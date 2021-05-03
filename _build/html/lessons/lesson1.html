@@ -1,0 +1,654 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get the data &#8212; SQLessons</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Get the data" href="lesson2.html" />
+    <link rel="prev" title="Welcome to Jupyter Book Lessons" href="../intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">SQLessons</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to Jupyter Book Lessons
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lesson 1
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#connecting-to-the-database">
+   Connecting to the database
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#sql-and-pandas">
+   SQL and Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#creating-a-sql-table-with-pandas">
+   Creating a SQL table with pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lesson 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson2.html">
+   Get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson2.html#connecting-to-the-database">
+   Connecting to the database
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson2.html#querying-the-database-with-sql-syntax">
+   Querying the database with SQL syntax
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson2.html#querying-the-database-with-pandas-syntax">
+   Querying the database with Pandas syntax
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lesson 3
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson3.html">
+   Entity-Relationship Diagrams
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lesson 4
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson4.html">
+   Using APIs
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Additional Content
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/bench_database.html">
+   Benchmarking
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/lessons/lesson1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/lessons/lesson1.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/lessons/lesson1.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Get the data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#connecting-to-the-database">
+   Connecting to the database
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-and-pandas">
+   SQL and Pandas
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-sql-table-with-pandas">
+   Creating a SQL table with pandas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-quick-explanation-of-pandas">
+     A quick explanation of Pandas
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="get-the-data">
+<h1>Get the data<a class="headerlink" href="#get-the-data" title="Permalink to this headline">¶</a></h1>
+<p>To get started, we have to request the SQLite file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://ndownloader.figshare.com/files/2292171&quot;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../data/portals_mammal.sqlite&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="connecting-to-the-database">
+<h1>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permalink to this headline">¶</a></h1>
+<p>Now that we have the data, we can connect through SQLite.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="n">con</span><span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;../data/portals_mammal.sqlite&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sqlite3.Connection
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we perform a basic SELECT operation, selecting:</p>
+<ul class="simple">
+<li><p>year, species_id, and plot_id from <em>surveys</em>.<br />
+This selects those attributes from the surveys relation, and ignores all others.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select year, species_id, plot_id from surveys&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sqlite3.Cursor at 0x7fef9802fe30&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Print the first row from the selected attributes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row1</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">row1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1977, &#39;NL&#39;, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot; The first value is&quot;</span><span class="p">,</span> <span class="n">row1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> The first value is 1977
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we try the same select, but limit the number of rows to 10.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select year, species_id, plot_id from surveys limit 10&quot;</span><span class="p">)</span>
+<span class="n">all_rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">all_rows</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1977, &#39;NL&#39;, 2)
+(1977, &#39;NL&#39;, 3)
+(1977, &#39;DM&#39;, 2)
+(1977, &#39;DM&#39;, 7)
+(1977, &#39;DM&#39;, 3)
+(1977, &#39;PF&#39;, 1)
+(1977, &#39;PE&#39;, 2)
+(1977, &#39;DM&#39;, 1)
+(1977, &#39;DM&#39;, 1)
+(1977, &#39;PF&#39;, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this SQL operation, we are going to add both <em>conditionals</em> and the <em>JOIN</em> operator.</p>
+<p>The <em>JOIN</em> operator combines rows from two or more tables, using the following syntax:</p>
+<blockquote>
+<div><p>(SET 1) join (SET 2) on (<a class="reference external" href="http://set1.id">set1.id</a> = <a class="reference external" href="http://set2.id">set2.id</a>)</p>
+</div></blockquote>
+<p>We can also add additional conditions to the join by adding a <em>where</em> operation:</p>
+<blockquote>
+<div><p>where (condition = “value”)</p>
+</div></blockquote>
+<p>In the following example, we join the <em>surveys</em> and <em>species</em> relations, using species_id as the relationship key. We select only species matching the species name “flavus” surveyed past the year 2000.
+Limit of 10 is added to reduce the table size.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">select surveys.year, surveys.month, surveys.day, species.genus, species.species</span>
+<span class="s2">from surveys</span>
+<span class="s2">join species</span>
+<span class="s2">on surveys.species_id = species.species_id</span>
+<span class="s2">where species.species = &quot;flavus&quot;</span>
+<span class="s2">and surveys.year &gt; 2000</span>
+<span class="s2">limit 10</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2002, 2, 9, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(2002, 2, 10, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(2002, 3, 14, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(2002, 3, 14, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(2002, 3, 14, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(2002, 3, 14, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(2001, 3, 25, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(2002, 4, 17, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(2002, 4, 17, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(2001, 4, 21, &#39;Perognathus&#39;, &#39;flavus&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, we perform the same select and join operations as the previous code block, but rather than select all surveys of “flavus” above year 2000, we select only surveys taken in 1996, 1997, or 1998.
+Again, we limit 10 to reduce table size.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">select surveys.year, surveys.month, surveys.day, species.genus, species.species</span>
+<span class="s2">from surveys</span>
+<span class="s2">join species</span>
+<span class="s2">on surveys.species_id = species.species_id</span>
+<span class="s2">where species.species = &quot;flavus&quot;</span>
+<span class="s2">and surveys.year in (1996, 1997, 1998)</span>
+<span class="s2">limit 10</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1996, 1, 27, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(1996, 1, 27, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(1996, 1, 27, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(1996, 1, 27, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(1996, 1, 27, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(1996, 1, 27, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(1996, 1, 27, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(1996, 1, 28, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(1996, 1, 28, &#39;Perognathus&#39;, &#39;flavus&#39;)
+(1996, 1, 28, &#39;Perognathus&#39;, &#39;flavus&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sql-and-pandas">
+<h1>SQL and Pandas<a class="headerlink" href="#sql-and-pandas" title="Permalink to this headline">¶</a></h1>
+<p><strong>Challenge: modify last query to find surveys that were conducted in July or December in the year 1996, 1997, or 1998</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;../data/portals_mammal.sqlite&quot;</span><span class="p">)</span>
+
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">select surveys.year, surveys.month, surveys.day, species.genus, species.species</span>
+<span class="s2">from surveys</span>
+<span class="s2">join species</span>
+<span class="s2">on surveys.species_id = species.species_id</span>
+<span class="s2">where species.species = &quot;flavus&quot;</span>
+<span class="s2">and surveys.year &gt; 2000</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   year  month  day        genus species
+0  2002      2    9  Perognathus  flavus
+1  2002      2   10  Perognathus  flavus
+2  2002      3   14  Perognathus  flavus
+3  2002      3   14  Perognathus  flavus
+4  2002      3   14  Perognathus  flavus
+</pre></div>
+</div>
+</div>
+</div>
+<p>Answer:</p>
+<blockquote>
+<div><p>and surveys.year in (1996, 1997, 1998) and surveys.month = “December”</p>
+</div></blockquote>
+</div>
+<div class="section" id="creating-a-sql-table-with-pandas">
+<h1>Creating a SQL table with pandas<a class="headerlink" href="#creating-a-sql-table-with-pandas" title="Permalink to this headline">¶</a></h1>
+<p>Pandas is a data analysis tool built on the Numpy package that makes it very easy to manipulate and format databases and tables into usable structures.</p>
+<p>First off, it is important to have both Pandas and SQLite3 installed and up-to-date. These rely on Python3, so you may need to update your PATH if you are still on Python 2.x.</p>
+<div class="section" id="a-quick-explanation-of-pandas">
+<h2>A quick explanation of Pandas<a class="headerlink" href="#a-quick-explanation-of-pandas" title="Permalink to this headline">¶</a></h2>
+<p>Pandas utilizes a key datastructure called the DataFrame. DataFrames allow you to store and manipulate tabular data in rows of obervations and columns of variables.</p>
+<p>There are many ways to create DataFrames from existing files (for example, one popular method is reading from CSV files). In this instance, we will be reading data from our SQLite file into a DataFrame using a custom SQL query, similar to the previous examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;../data/portals_mammal.sqlite&quot;</span><span class="p">)</span>
+<span class="c1"># load the data into a DataFrame</span>
+<span class="n">survey_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;select * from surveys&quot;</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+
+<span class="c1"># Select only data from 2002</span>
+<span class="n">surveys2002</span> <span class="o">=</span> <span class="n">survey_df</span><span class="p">[</span><span class="n">survey_df</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2002</span><span class="p">]</span>
+
+<span class="c1"># Write the new dataframe to a new sqlite </span>
+<span class="n">surveys2002</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">&quot;surveys2002&quot;</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the DataFrames to create new SQL tables, as seen in the final line of the previous example. Now, we can perform additional SQL operations to manipulate our data further.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;select * from surveys2002&quot;</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   index  record_id  month  day  year  plot_id species_id   sex  \
+0  33320      33321      1   12  2002        1         DM     M   
+1  33321      33322      1   12  2002        1         DO     M   
+2  33322      33323      1   12  2002        1         PB     M   
+3  33323      33324      1   12  2002        1         AB  None   
+4  33324      33325      1   12  2002        1         DO     M   
+
+   hindfoot_length  weight  
+0             38.0    44.0  
+1             37.0    58.0  
+2             28.0    45.0  
+3              NaN     NaN  
+4             35.0    29.0  
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Welcome to Jupyter Book Lessons</a>
+    <a class='right-next' id="next-link" href="lesson2.html" title="next page">Get the data</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Evan Cole<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

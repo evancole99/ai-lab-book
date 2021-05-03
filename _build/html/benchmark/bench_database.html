@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benchmarking &#8212; SQLessons</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Entity-Relationship Diagrams" href="../lessons/lesson3.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">SQLessons</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to Jupyter Book Lessons
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lesson 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons/lesson1.html">
+   Get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons/lesson1.html#connecting-to-the-database">
+   Connecting to the database
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons/lesson1.html#sql-and-pandas">
+   SQL and Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons/lesson1.html#creating-a-sql-table-with-pandas">
+   Creating a SQL table with pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lesson 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons/lesson2.html">
+   Get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons/lesson2.html#connecting-to-the-database">
+   Connecting to the database
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons/lesson2.html#querying-the-database-with-sql-syntax">
+   Querying the database with SQL syntax
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons/lesson2.html#querying-the-database-with-pandas-syntax">
+   Querying the database with Pandas syntax
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lesson 3
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lessons/lesson3.html">
+   Entity-Relationship Diagrams
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Additional Content
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Benchmarking
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/benchmark/bench_database.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/benchmark/bench_database.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/benchmark/bench_database.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-the-libraries">
+   Importing the libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-the-dataset">
+   Get the dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benchmark-pandas">
+   Benchmark Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benchmark-sqlite3">
+   Benchmark SQLite3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benchmark-duckdb">
+   Benchmark DuckDB
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benchmarking-count-functions">
+   Benchmarking count functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pandas-query">
+     Pandas Query
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sqlite3">
+     SQLite3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#duckdb">
+     DuckDB
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="benchmarking">
+<h1>Benchmarking<a class="headerlink" href="#benchmarking" title="Permalink to this headline">¶</a></h1>
+<p>In this lesson, we are going to go over some simple forms of benchmarking databases. We will be focusing on three different libraries built for Python:</p>
+<ul class="simple">
+<li><p>Pandas</p></li>
+<li><p>SQLite3</p></li>
+<li><p>DuckDB</p></li>
+</ul>
+<p>For information about how to use these libraries, visit lessons 1 and 2.</p>
+<div class="section" id="importing-the-libraries">
+<h2>Importing the libraries<a class="headerlink" href="#importing-the-libraries" title="Permalink to this headline">¶</a></h2>
+<p>First, we will begin by importing the necessary libraries.
+You may need to download the prerequisite packages prior to running the code, particularly for Pandas. The necessary installation packages are contained in the <em>requirements.txt</em> file. You may install it with pip by using the following command while in the correct working directory:</p>
+<blockquote>
+<div><p>pip install -r requirements.txt<br />
+If this does not work, consult Pandas documentation.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">duckdb</span>
+<span class="kn">import</span> <span class="nn">csv</span><span class="o">,</span> <span class="nn">sqlite3</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</pre></div>
+</div>
+<p>The <em>datetime</em> library is how we will measure the time it took to execute each part of the Python script that we wish to benchmark.</p>
+<p>All we must do to time an operation is to subtract the starting <em>datetime.now()</em> from the ending <em>datetime.now()</em>.</p>
+</div>
+<div class="section" id="get-the-dataset">
+<h2>Get the dataset<a class="headerlink" href="#get-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>For this example, we will be reading data from a COVID 19 case surveillance database provided by the CDC.
+You can get the CSV file yourself from <a class="reference external" href="https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Data/vbim-akqf">the CDC’s website</a>.</p>
+<p>NOTE: The CSV file is over <strong>20 million</strong> rows, amounting to over <strong>2 GB</strong> large. This means it takes a relatively large amount of memory to process, and can easily corrupt/crash lower-end systems or Virtual Machines. Consider if your machine’s specifications can handle the operations before trying to process the dataset.</p>
+</div>
+<div class="section" id="benchmark-pandas">
+<h2>Benchmark Pandas<a class="headerlink" href="#benchmark-pandas" title="Permalink to this headline">¶</a></h2>
+<p>Let’s begin by benchmarking the COVID dataset using Pandas.
+First, we will test how long it takes to read the CSV file into a dataframe, and write the dataframe to a new SQL database.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -- BENCHMARK PANDAS --</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="c1"># Set datatypes before-hand, because it is very memory intensive for Pandas to guess</span>
+<span class="n">dtypes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cdc_case_earliest_dt &#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span> <span class="s1">&#39;cdc_report_dt&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span> <span class="s1">&#39;pos_spec_dt&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
+<span class="s1">&#39;onset_dt&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span> <span class="s1">&#39;current_status&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span> <span class="s1">&#39;age_group&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
+<span class="s1">&#39;race_ethnicity_combined&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span> <span class="s1">&#39;hosp_yn&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span> <span class="s1">&#39;icu_yn&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span> <span class="s1">&#39;death_yn&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
+<span class="s1">&#39;medcond_yn&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;covid19.csv&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtypes</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this case, it is important that we tell Pandas’ read_csv function which datatypes to expect and which column names they correspond to, since it is very memory intensive for Pandas to guess. In our circumstance, the COVID dataset is provided entirely as strings.</p>
+<p>The read_csv function does just as it says: it reads a CSV file and writes it into a dataframe. For large files, this can take a while, particularly for machines with low processing power.</p>
+<p>Now that we have read the CSV file into a dataframe, we will use Pandas’ to_sql function to write the dataframe to an SQL database.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Connect to database</span>
+<span class="n">con1</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;:memory:&quot;</span><span class="p">)</span>
+<span class="c1"># Write to SQL database</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">con1</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">)</span>
+<span class="n">con1</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>First, we connect to the SQLite3 database. Here, we are using an in-memory database, rather than saving it to a file or connecting to an online database. This means that when the Python process has terminated, all data written to memory will be wiped. This will allow us to save a lot of disk space that normally would have been consumed by writing the file.</p>
+<p>Next, we used the to_sql function with the parameter if_exists=’replace’. This tells the process to overwrite the file if one of that name already exists.
+In order for the database to be saved, we must <strong>commit</strong> the changes.</p>
+<p>Lastly, we can print the time it took to execute:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print Pandas to_sql results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pandas read/write:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>My machine’s results:<br />
+<strong>131.60 sec avg</strong></p>
+</div>
+<div class="section" id="benchmark-sqlite3">
+<h2>Benchmark SQLite3<a class="headerlink" href="#benchmark-sqlite3" title="Permalink to this headline">¶</a></h2>
+<p>Now we will repeat the process for SQLite3. Rather than using Pandas syntax, we will use SQL queries in addition to functions built-in to the SQLite3 library.</p>
+<p>As usual, we begin by setting the start time and connecting to the in-memory database.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -- BENCHMARK SQLITE3 --</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="c1"># Connect to database</span>
+<span class="n">con2</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;:memory:&quot;</span><span class="p">)</span>
+<span class="n">cur2</span> <span class="o">=</span> <span class="n">con2</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Next, we will create a table using SQL, and specify the correct column names.
+Once the table has been created, we can use the CSV library’s <em>DictReader</em> module to iterate over file, but only on rows that match the field names.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create table with headers</span>
+<span class="n">cur2</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE t (cdc_case_earliest_dt , cdc_report_dt, pos_spec_dt, onset_dt, current_status, sex, age_group, race_ethnicity_combined, hosp_yn, icu_yn, death_yn, medcond_yn);&quot;</span><span class="p">)</span>
+<span class="c1"># Open the CSV and populate columns</span>
+<span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">&#39;covid19.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+    <span class="n">dr</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
+    <span class="n">to_db</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;cdc_case_earliest_dt &#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cdc_report_dt&#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;pos_spec_dt&#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;onset_dt&#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;current_status&#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;age_group&#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;race_ethnicity_combined&#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;hosp_yn&#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;icu_yn&#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;death_yn&#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;medcond_yn&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">dr</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>We then iterate over each value read by the DictReader and store it in a variable, that we can now write directly to the database using the <em>INSERT</em> SQL query.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Insert columns into table and commit</span>
+<span class="n">cur2</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s2">&quot;INSERT INTO t (cdc_case_earliest_dt , cdc_report_dt, pos_spec_dt, onset_dt, current_status, sex, age_group, race_ethnicity_combined, hosp_yn, icu_yn, death_yn, medcond_yn) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);&quot;</span><span class="p">,</span> <span class="n">to_db</span><span class="p">)</span>
+<span class="n">con2</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now that we have inserted our rows of data, and committed the changes, we can print our results.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print SQLite results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SQLite read/write:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>My machine’s results:<br />
+<strong>153.80 sec avg</strong></p>
+</div>
+<div class="section" id="benchmark-duckdb">
+<h2>Benchmark DuckDB<a class="headerlink" href="#benchmark-duckdb" title="Permalink to this headline">¶</a></h2>
+<p>Last but certainly not least, we will benchmark DuckDB. It functions exactly the same as SQLite3, but with a couple slight syntax differences.</p>
+<p>As always, we will begin the timer, and connect to the in-memory database.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -- BENCHMARK DUCKDB --</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="c1"># Connect to database</span>
+<span class="n">con3</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">=</span><span class="s1">&#39;:memory:&#39;</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">cur3</span> <span class="o">=</span> <span class="n">con3</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In order to read the data from the CSV file, we first have to create the table using SQL queries, exactly the same as in the SQLite3 section.</p>
+<p>However, when it comes to reading the data, DuckDB differs slightly from SQLite3. DuckDB has a built in CSV reader function compatible with SQL queries.</p>
+<p>This allows us to use an <em>INSERT</em> operation in conjunction with a <em>SELECT</em> operation directly from the read_csv_auto module.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create table with headers</span>
+<span class="n">cur3</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE t (cdc_case_earliest_dt  VARCHAR, cdc_report_dt VARCHAR, pos_spec_dt VARCHAR, onset_dt VARCHAR, current_status VARCHAR, sex VARCHAR, age_group VARCHAR, race_ethnicity_combined VARCHAR, hosp_yn VARCHAR, icu_yn VARCHAR, death_yn VARCHAR, medcond_yn VARCHAR);&quot;</span><span class="p">)</span>
+<span class="c1"># Insert values into table from CSV</span>
+<span class="n">cur3</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO t SELECT * FROM read_csv_auto(&#39;covid19.csv&#39;, HEADER=TRUE);&quot;</span><span class="p">)</span>
+<span class="n">con3</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>And that is it! Now that we have committed our changes, we can print our results.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print DuckDB results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DuckDB read/write:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>My machine’s results:<br />
+<strong>23.6 sec avg</strong></p>
+<p>After viewing the results, we can see that DuckDB is significantly faster than Pandas and SQLite3. However, the catch is that the database file it produces (in our example, we use in-memory, so the difference is not visible) is over 1 GB larger than its counterparts.</p>
+</div>
+<div class="section" id="benchmarking-count-functions">
+<h2>Benchmarking count functions<a class="headerlink" href="#benchmarking-count-functions" title="Permalink to this headline">¶</a></h2>
+<p>We have tested the time it takes to read and write from a CSV file, but what about querying the database itself?</p>
+<p>Here, we will test each library with the same query:<br />
+Get the count of each hospitalization status for the age group 0 - 9 years.</p>
+<p>NOTE: In this example, the queries were executed after the data had been written to the in-memory database. To query from a database file, simply replace <em>:memory:</em> with the file location in the connect line.</p>
+<div class="section" id="pandas-query">
+<h3>Pandas Query<a class="headerlink" href="#pandas-query" title="Permalink to this headline">¶</a></h3>
+<p>For the Pandas query, we can use the built-in value_counts() function. All we have to do is isolate the columns we wish to count.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">countdf</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;hosp_yn&#39;</span><span class="p">,</span> <span class="s1">&#39;age_group&#39;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">countdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">countdf</span><span class="p">[</span><span class="s1">&#39;age_group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;0 - 9 Years&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="c1"># Print Pandas count results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pandas count:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+<span class="n">con1</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>My machine’s results:<br />
+<strong>1.67 sec avg</strong></p>
+</div>
+<div class="section" id="sqlite3">
+<h3>SQLite3<a class="headerlink" href="#sqlite3" title="Permalink to this headline">¶</a></h3>
+<p>To repeat the exact same query for SQLite3, we will use SQL’s <em>COUNT</em> operation in conjunction with a <em>SELECT</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">cur2</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT hosp_yn, COUNT(hosp_yn) FROM t WHERE age_group=&#39;0 - 9 Years&#39; GROUP BY hosp_yn&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cur2</span><span class="o">.</span><span class="n">fetchall</span><span class="p">())</span>
+<span class="c1"># Print count results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SQL count:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+<span class="n">con2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>My machine’s results:<br />
+<strong>3.23 sec avg</strong></p>
+</div>
+<div class="section" id="duckdb">
+<h3>DuckDB<a class="headerlink" href="#duckdb" title="Permalink to this headline">¶</a></h3>
+<p>In this case, DuckDB’s query will be identical to SQLite3’s.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">cur3</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT hosp_yn, COUNT(hosp_yn) FROM t WHERE age_group=&#39;0 - 9 Years&#39; GROUP BY hosp_yn&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cur3</span><span class="o">.</span><span class="n">fetchall</span><span class="p">())</span>
+<span class="c1"># Print count results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DuckDB count:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+<span class="n">con3</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>My machine’s results:<br />
+<strong>.096 sec avg</strong></p>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Our results tell us a few interesting things. SQLite and Pandas are very nice solutions for working locally, and on smaller-scale datasets. DuckDB is surprisingly fast, at the expense of increased disk space. This is because DuckDB is a columnar-based data store, whereas SQLite and Pandas are row-based.</p>
+<p>This makes querying entire columns a lot more efficient, which is why the aggregating count query we tried was so much faster for DuckDB to process. As a result, DuckDB is a popular choice for machine learning implementations, as it can execute operations on columns several orders of magnitude faster than most counterparts.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./benchmark"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../lessons/lesson3.html" title="previous page">Entity-Relationship Diagrams</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Evan Cole<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

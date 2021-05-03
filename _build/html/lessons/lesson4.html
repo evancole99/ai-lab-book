@@ -1,0 +1,559 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using APIs &#8212; SQLessons</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Benchmarking" href="../extra/bench_database.html" />
+    <link rel="prev" title="Entity-Relationship Diagrams" href="lesson3.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">SQLessons</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to Jupyter Book Lessons
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lesson 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson1.html">
+   Get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson1.html#connecting-to-the-database">
+   Connecting to the database
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson1.html#sql-and-pandas">
+   SQL and Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson1.html#creating-a-sql-table-with-pandas">
+   Creating a SQL table with pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lesson 2
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson2.html">
+   Get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson2.html#connecting-to-the-database">
+   Connecting to the database
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson2.html#querying-the-database-with-sql-syntax">
+   Querying the database with SQL syntax
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson2.html#querying-the-database-with-pandas-syntax">
+   Querying the database with Pandas syntax
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lesson 3
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson3.html">
+   Entity-Relationship Diagrams
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Lesson 4
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Using APIs
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Additional Content
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../extra/bench_database.html">
+   Benchmarking
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/lessons/lesson4.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/lessons/lesson4.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/lessons/lesson4.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stock-table-schema">
+   Stock table: Schema
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-libraries">
+   Importing libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calling-the-api">
+   Calling the API
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-and-write-data">
+   Read and write data
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="using-apis">
+<h1>Using APIs<a class="headerlink" href="#using-apis" title="Permalink to this headline">¶</a></h1>
+<p>In this lesson, we will use Yahoo Finance’s API to download stock data and insert it into our investment tracking database, upon which we can do additional calculations.</p>
+<p>The only table in the database that we are concerned with for this lesson is the <em>stock</em> table. However, there are many more tables to play around with, allowing for more complex programs and queries. For a more detailed overview of the database, watch the video embedded below.</p>
+<div class="section" id="stock-table-schema">
+<h2>Stock table: Schema<a class="headerlink" href="#stock-table-schema" title="Permalink to this headline">¶</a></h2>
+<p>Below is an overview of the schema of the stock table.
+Note: The database is updated often, so it is possible this schema is out of date.  You can check the current schema by running the <em>.schema table</em> command in sqlite3.</p>
+<p>Stock:</p>
+<ul class="simple">
+<li><p><strong>ticker</strong> varchar(5)</p>
+<ul>
+<li><p>The stock’s ticker symbol, as listed on the stock exchange. Up to 5 characters.</p></li>
+</ul>
+</li>
+<li><p><strong>mkt</strong>_<strong>date</strong> varchar(10)</p>
+<ul>
+<li><p>Date in YYYY-MM-DD format.</p></li>
+</ul>
+</li>
+<li><p><strong>open</strong> float(16)</p>
+<ul>
+<li><p>Price per share at market open.</p></li>
+</ul>
+</li>
+<li><p><strong>high</strong> float(16)</p>
+<ul>
+<li><p>Highest price during trading hours.</p></li>
+</ul>
+</li>
+<li><p><strong>low</strong> float(16)</p>
+<ul>
+<li><p>Lowest price during trading hours.</p></li>
+</ul>
+</li>
+<li><p><strong>close</strong> float(16)</p>
+<ul>
+<li><p>Price per share at market close.</p></li>
+</ul>
+</li>
+<li><p><strong>adj</strong>_<strong>close</strong> float(16)</p>
+<ul>
+<li><p>The stock’s adjusted closing price, factoring in other actions after close. Considered to be more accurate.</p></li>
+</ul>
+</li>
+<li><p><strong>volume</strong> int</p>
+<ul>
+<li><p>Number of shares traded during trading hours.</p></li>
+</ul>
+</li>
+</ul>
+<p>The primary key of this table is (mkt_date, ticker).</p>
+</div>
+<div class="section" id="importing-libraries">
+<h2>Importing libraries<a class="headerlink" href="#importing-libraries" title="Permalink to this headline">¶</a></h2>
+<p>First of all, we have to import all of the necessary libraries. We will be using pandas, pandas datareader, datetime, yfinance, and sqlite3.</p>
+<p>Then, as usual, we connect to the database using sqlite3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas_datareader</span> <span class="kn">import</span> <span class="n">data</span> <span class="k">as</span> <span class="n">pdr</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
+<span class="n">yf</span><span class="o">.</span><span class="n">pdr_override</span><span class="p">()</span> <span class="c1"># overrides yfinance to expect pandas datareader</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;../data/invest_tracker.db&quot;</span><span class="p">)</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calling-the-api">
+<h2>Calling the API<a class="headerlink" href="#calling-the-api" title="Permalink to this headline">¶</a></h2>
+<p>Now, we will build a simple function to download today’s stock market prices from the given ticker. Thankfully, YFinance does all of the hard work for us, so weonly need to make a single API call.</p>
+<p>The get_data_yahoo call on pandas datareader automatically queries the API, downloads data on the given ticker and date range, and writes it to a dataframe. Since we are only querying a single day, the returned dataframe will only contain a single row.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="n">yesterday</span> <span class="o">=</span> <span class="n">today</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="n">ticker</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fetching &quot;</span><span class="p">,</span> <span class="n">ticker</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">yesterday</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">today</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="read-and-write-data">
+<h2>Read and write data<a class="headerlink" href="#read-and-write-data" title="Permalink to this headline">¶</a></h2>
+<p>All that is left to do now is pick a list of stock tickers, and use the function we just built to download the data. Once we have done that, we can prepare the data to be inserted into the database via SQL queries.</p>
+<p>Let’s break down each line of the for loop below, to better understand exactly what is going on.</p>
+<p>For each ticker in the ticker list:</p>
+<ul class="simple">
+<li><p>Call the API to download data into dataframe</p></li>
+<li><p>Reset the index of the dataframe, so it is not indexed by the date</p></li>
+<li><p>Set the dataframe’s column names and in the correct order</p></li>
+<li><p>Insert a column for the ticker at index 1</p></li>
+<li><p>Prepare SQL insertion command</p></li>
+<li><p>Get the single row of data</p></li>
+<li><p>Convert the date into proper format</p></li>
+<li><p>Execute the SQL command, making sure to give the proper datatype to each column</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ticker_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOGL&#39;</span><span class="p">,</span> <span class="s1">&#39;FB&#39;</span><span class="p">,</span> <span class="s1">&#39;MSFT&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">tik</span> <span class="ow">in</span> <span class="n">ticker_list</span><span class="p">:</span>
+    <span class="n">tik_data</span> <span class="o">=</span> <span class="n">getData</span><span class="p">(</span><span class="n">tik</span><span class="p">)</span>
+    <span class="n">tik_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">tik_data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mkt_date&#39;</span><span class="p">,</span> <span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="p">,</span> <span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="s1">&#39;close&#39;</span><span class="p">,</span> <span class="s1">&#39;adj_close&#39;</span><span class="p">,</span> <span class="s1">&#39;volume&#39;</span><span class="p">]</span>
+    <span class="n">tik_data</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;ticker&#39;</span><span class="p">,</span> <span class="n">tik</span><span class="p">)</span>
+    <span class="n">tik_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;ticker&#39;</span><span class="p">)</span>
+    
+    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT or IGNORE INTO stock (mkt_date, ticker, open, high, low, close, adj_close, volume) VALUES (?, ?, ?, ?, ?, ?, ?, ?)&quot;</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">tik_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="n">date_stripped</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">mkt_date</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">date_stripped</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">ticker</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">open</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">high</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">low</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">close</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">adj_close</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">volume</span><span class="p">)))</span>
+
+<span class="n">con</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fetching  AAPL
+
+[*********************100%***********************]  1 of 1 completed
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkt_date     2021-04-21 00:00:00
+ticker                      AAPL
+open                  132.360001
+high                      133.75
+low                   131.300003
+close                      133.5
+adj_close                  133.5
+volume                  68728500
+Name: 0, dtype: object
+Fetching  GOOGL
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[*********************100%***********************]  1 of 1 completed
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkt_date     2021-04-21 00:00:00
+ticker                     GOOGL
+open                 2272.050049
+high                      2280.0
+low                  2244.820068
+close                2278.350098
+adj_close            2278.350098
+volume                   1159500
+Name: 0, dtype: object
+Fetching  FB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[*********************100%***********************]  1 of 1 completed
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkt_date     2021-04-21 00:00:00
+ticker                        FB
+open                  301.950012
+high                  301.980011
+low                   297.390015
+close                 301.470001
+adj_close             301.470001
+volume                  14849000
+Name: 0, dtype: object
+Fetching  MSFT
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[*********************100%***********************]  1 of 1 completed
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkt_date     2021-04-21 00:00:00
+ticker                      MSFT
+open                  258.940002
+high                  260.679993
+low                       257.25
+close                 260.579987
+adj_close             260.579987
+volume                  24009300
+Name: 0, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>And with those few lines of code, we now have up-to-date stock market data on any ticker we want in our database. We could expand upon this code to download as many days, weeks, or months of data as we wish, and could perform all sorts of different plots, graphs, or calculations.</p>
+<p>For a more comprehensive example on how this data can be used to track personal investments, see the advanced version of the stock API code found in the <a class="reference external" href="https://github.com/uri-ai-lab/ai-lab-book">extra content</a> folder.</p>
+<p>The YFinance module is also capable of a lot more. For full documentation on its uses, you can find the <a class="reference external" href="https://github.com/ranaroussi/yfinance">code on GitHub</a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="lesson3.html" title="previous page">Entity-Relationship Diagrams</a>
+    <a class='right-next' id="next-link" href="../extra/bench_database.html" title="next page">Benchmarking</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Evan Cole<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

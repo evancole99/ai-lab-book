@@ -1,0 +1,1088 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get the data &#8212; SQLessons</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Benchmarking" href="benchmark/bench_database.html" />
+    <link rel="prev" title="Get the data" href="lesson1.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">SQLessons</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to Jupyter Book Lessons
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python Lesson 1
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson1.html">
+   Get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson1.html#connecting-to-the-database">
+   Connecting to the database
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson1.html#sql-and-pandas">
+   SQL and Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lesson1.html#creating-a-sql-table-with-pandas">
+   Creating a SQL table with pandas
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python Lesson 2
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Get the data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#connecting-to-the-database">
+   Connecting to the database
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#querying-the-database-with-sql-syntax">
+   Querying the database with SQL syntax
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#querying-the-database-with-pandas-syntax">
+   Querying the database with Pandas syntax
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Additional Content
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="benchmark/bench_database.html">
+   Benchmarking
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/lesson2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/lesson2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/lesson2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Get the data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#connecting-to-the-database">
+   Connecting to the database
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#querying-the-database-with-sql-syntax">
+   Querying the database with SQL syntax
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#querying-the-database-with-pandas-syntax">
+   Querying the database with Pandas syntax
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-translation">
+     SQL translation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simple-queries">
+     Simple queries
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complex-queries">
+     Complex queries
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#challenge">
+       Challenge:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Challenge:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-a-new-sqlite-database">
+     Creating a new SQLite database
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="get-the-data">
+<h1>Get the data<a class="headerlink" href="#get-the-data" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://ndownloader.figshare.com/files/2292171&quot;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/portals_mammal.sqlite&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="connecting-to-the-database">
+<h1>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="n">con</span><span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;data/portals_mammal.sqlite&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s get some info about the database we connected to:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sqlite3.Connection
+</pre></div>
+</div>
+</div>
+</div>
+<p>Just like spreadsheets, SQLite databases can contain several different tables.<br />
+In this example, we have three tables:</p>
+<ul class="simple">
+<li><p>plots</p></li>
+<li><p>species</p></li>
+<li><p>surveys<br />
+Each table has its own attributes. We can list a table’s meta data, including its column headers (labels) using a <em>pragma statement</em>:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;pragma table_info(surveys)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, &#39;record_id&#39;, &#39;BIGINT&#39;, 0, None, 0), (1, &#39;month&#39;, &#39;BIGINT&#39;, 0, None, 0), (2, &#39;day&#39;, &#39;BIGINT&#39;, 0, None, 0), (3, &#39;year&#39;, &#39;BIGINT&#39;, 0, None, 0), (4, &#39;plot_id&#39;, &#39;BIGINT&#39;, 0, None, 0), (5, &#39;species_id&#39;, &#39;TEXT&#39;, 0, None, 0), (6, &#39;sex&#39;, &#39;TEXT&#39;, 0, None, 0), (7, &#39;hindfoot_length&#39;, &#39;INTEGER&#39;, 0, None, 0), (8, &#39;weight&#39;, &#39;INTEGER&#39;, 0, None, 0)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the output, we can see that the table <em>surveys</em> has the following attributes:</p>
+<ul class="simple">
+<li><p>record_id</p></li>
+<li><p>month</p></li>
+<li><p>day</p></li>
+<li><p>year</p></li>
+<li><p>plot_id</p></li>
+<li><p>species_id</p></li>
+<li><p>sex</p></li>
+<li><p>hindfoot_length</p></li>
+<li><p>weight</p></li>
+</ul>
+</div>
+<div class="section" id="querying-the-database-with-sql-syntax">
+<h1>Querying the database with SQL syntax<a class="headerlink" href="#querying-the-database-with-sql-syntax" title="Permalink to this headline">¶</a></h1>
+<p>Now that we understand the underlying database structure, we can query the database using SQL commands, and display data contained in the tables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select year, species_id, plot_id from surveys&quot;</span><span class="p">)</span>
+<span class="n">row1</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">row1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1977, &#39;NL&#39;, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot; The first value is&quot;</span><span class="p">,</span> <span class="n">row1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> The first value is 1977
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="querying-the-database-with-pandas-syntax">
+<h1>Querying the database with Pandas syntax<a class="headerlink" href="#querying-the-database-with-pandas-syntax" title="Permalink to this headline">¶</a></h1>
+<p>Pandas is a powerful data analysis and manipulation tool built on top of Python. Using Pandas, it is possible to perform the same operations as SQL using only Pandas syntax.</p>
+<p>Pandas operates using data structures called DataFrames. They are essentially tables of data operating by the normal row-column format. A variety of operations and commands are built in to Pandas, making it a very flexible data analysis tool.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;data/portals_mammal.sqlite&quot;</span><span class="p">)</span>
+
+<span class="c1"># load data from sqlite file into DataFrame</span>
+<span class="n">surveys</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;select * from surveys&quot;</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+
+<span class="n">surveys</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>record_id</th>
+      <th>month</th>
+      <th>day</th>
+      <th>year</th>
+      <th>plot_id</th>
+      <th>species_id</th>
+      <th>sex</th>
+      <th>hindfoot_length</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>7</td>
+      <td>16</td>
+      <td>1977</td>
+      <td>2</td>
+      <td>NL</td>
+      <td>M</td>
+      <td>32.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>7</td>
+      <td>16</td>
+      <td>1977</td>
+      <td>3</td>
+      <td>NL</td>
+      <td>M</td>
+      <td>33.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>7</td>
+      <td>16</td>
+      <td>1977</td>
+      <td>2</td>
+      <td>DM</td>
+      <td>F</td>
+      <td>37.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>7</td>
+      <td>16</td>
+      <td>1977</td>
+      <td>7</td>
+      <td>DM</td>
+      <td>M</td>
+      <td>36.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>7</td>
+      <td>16</td>
+      <td>1977</td>
+      <td>3</td>
+      <td>DM</td>
+      <td>M</td>
+      <td>35.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The <em>head()</em> command lists the first 5 rows of a DataFrame.
+We can see the entire shape of the table using  <em>shape</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">surveys</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(35549, 9)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the <em>surveys</em> table has shape 9 columns x 35549 rows.</p>
+<div class="section" id="sql-translation">
+<h2>SQL translation<a class="headerlink" href="#sql-translation" title="Permalink to this headline">¶</a></h2>
+<p>The following SQL query returns the first 5 rows from <em>surveys</em>:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="o">`</span><span class="n">surveys</span><span class="o">`</span>
+<span class="k">LIMIT</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>Pandas translates your Python code into SQL, submits it to the database, and translates the database’s response into a DataFrame. This example is equivalent to Pandas’ <em>head()</em> command.</p>
+</div>
+<div class="section" id="simple-queries">
+<h2>Simple queries<a class="headerlink" href="#simple-queries" title="Permalink to this headline">¶</a></h2>
+<p>Let’s try some simple queries of the <em>surveys</em> table using Pandas. First, we will try to request rows from <em>surveys</em> where <em>weight</em> is less than 5. We will only keep the species_id, sex, and weight columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ltwt</span> <span class="o">=</span> <span class="n">surveys</span><span class="p">[</span><span class="n">surveys</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">ltwt</span><span class="p">[[</span><span class="s2">&quot;species_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">]]</span>
+<span class="n">result</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species_id</th>
+      <th>sex</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>217</th>
+      <td>PF</td>
+      <td>M</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>4051</th>
+      <td>PF</td>
+      <td>F</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>4289</th>
+      <td>PF</td>
+      <td>None</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>5345</th>
+      <td>PF</td>
+      <td>F</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>7083</th>
+      <td>PF</td>
+      <td>F</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="complex-queries">
+<h2>Complex queries<a class="headerlink" href="#complex-queries" title="Permalink to this headline">¶</a></h2>
+<p>We can perform more complicated queries across multiple tables.
+Since we are operating on a relational database, each table may contain <em>primary key</em> and <em>foreign key</em> attributes.</p>
+<p>A primary key attribute is a unique identifier for an entry in the table. For example, survey_id is the primary key attribute for the <em>surveys</em> table.<br />
+A foreign key attribute is a unique identifier for an entry in another table. For example, the plot_id attribute of the <em>surveys</em> table is a foreign key referencing the <em>plots</em> table.</p>
+<p>We can use these primary and foreign keys to join multiple DataFrames with matching key values.</p>
+<p>Let’s test this by extracting all surveys for the first plot, which has plot_id of 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first, let&#39;s define our plots and species dataframes</span>
+<span class="n">plots</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;select * from plots&quot;</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+<span class="n">species</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;select * from species&quot;</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
+
+<span class="c1"># In order to join by key values, we must set the index to the same key in both dataframes</span>
+
+<span class="n">both</span> <span class="o">=</span> <span class="n">surveys</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;plot_id&#39;</span><span class="p">),</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;plot_id&#39;</span><span class="p">)</span>
+<span class="n">plot_1</span> <span class="o">=</span> <span class="n">both</span><span class="p">[</span><span class="n">both</span><span class="o">.</span><span class="n">plot_id</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">plot_1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>record_id</th>
+      <th>month</th>
+      <th>day</th>
+      <th>year</th>
+      <th>plot_id</th>
+      <th>species_id</th>
+      <th>sex</th>
+      <th>hindfoot_length</th>
+      <th>weight</th>
+      <th>plot_type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>7</td>
+      <td>16</td>
+      <td>1977</td>
+      <td>1</td>
+      <td>PF</td>
+      <td>M</td>
+      <td>14.0</td>
+      <td>NaN</td>
+      <td>Spectab exclosure</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>7</td>
+      <td>16</td>
+      <td>1977</td>
+      <td>1</td>
+      <td>DM</td>
+      <td>M</td>
+      <td>37.0</td>
+      <td>NaN</td>
+      <td>Spectab exclosure</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>7</td>
+      <td>16</td>
+      <td>1977</td>
+      <td>1</td>
+      <td>DM</td>
+      <td>F</td>
+      <td>34.0</td>
+      <td>NaN</td>
+      <td>Spectab exclosure</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>78</td>
+      <td>8</td>
+      <td>19</td>
+      <td>1977</td>
+      <td>1</td>
+      <td>PF</td>
+      <td>M</td>
+      <td>16.0</td>
+      <td>9.0</td>
+      <td>Spectab exclosure</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>80</td>
+      <td>8</td>
+      <td>19</td>
+      <td>1977</td>
+      <td>1</td>
+      <td>DS</td>
+      <td>M</td>
+      <td>48.0</td>
+      <td>NaN</td>
+      <td>Spectab exclosure</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Above, we have joined the <em>plots</em> and <em>surveys</em> tables using plot_id as the key value. Then, we select only surveys matching plot_id of 1.</p>
+<div class="section" id="challenge">
+<h3>Challenge:<a class="headerlink" href="#challenge" title="Permalink to this headline">¶</a></h3>
+<p>Write a Pandas query that returns the number of rodents observed in each plot in each year.<br />
+Hint: Create a new DataFrame to join the species and survey tables together. Then exclude non-rodents. The query should return counts of rodents by year.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">table</span><span class="p">.</span><span class="n">col</span><span class="p">,</span> <span class="k">table</span><span class="p">.</span><span class="n">col</span>
+<span class="k">FROM</span> <span class="n">table1</span> <span class="k">JOIN</span> <span class="n">table2</span>
+<span class="k">ON</span> <span class="n">table1</span><span class="p">.</span><span class="k">key</span> <span class="o">=</span> <span class="n">table2</span><span class="p">.</span><span class="k">key</span>
+<span class="k">JOIN</span> <span class="n">table3</span> <span class="k">ON</span> <span class="n">table2</span><span class="p">.</span><span class="k">key</span> <span class="o">=</span> <span class="n">table3</span><span class="p">.</span><span class="k">key</span>
+</pre></div>
+</div>
+<details>
+<summary>Answer:</summary><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spcs_survs</span> <span class="o">=</span> <span class="n">surveys</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">species</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;species_id&#39;</span><span class="p">),</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;species_id&#39;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">spcs_survs</span><span class="p">[</span><span class="n">spcs_survs</span><span class="o">.</span><span class="n">taxa</span> <span class="o">!=</span> <span class="s1">&#39;Rodent&#39;</span><span class="p">]</span>
+<span class="n">result</span><span class="p">[</span><span class="s1">&#39;taxa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;count&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1977</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1978</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1979</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1980</th>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>1981</th>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>1982</th>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>1983</th>
+      <td>58</td>
+    </tr>
+    <tr>
+      <th>1984</th>
+      <td>37</td>
+    </tr>
+    <tr>
+      <th>1985</th>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>1986</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1987</th>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>1988</th>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th>1989</th>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>1990</th>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>1991</th>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>1992</th>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>1993</th>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>1994</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>1995</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1996</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1997</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1998</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</details>
+</div>
+<div class="section" id="id1">
+<h3>Challenge:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Write a Pandas query that returns the total number of rodents in each genus caught in the different plot types.<br />
+Hint: Write a query that joins species, plot, and surveys tables together. Then group by plot type, and return counts of genus.</p>
+<details>
+<summary>Answer:</summary><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spcs_survs</span> <span class="o">=</span> <span class="n">surveys</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">species</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;species_id&#39;</span><span class="p">),</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;species_id&#39;</span><span class="p">)</span>
+<span class="nb">all</span> <span class="o">=</span> <span class="n">spcs_survs</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">plots</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;plot_id&#39;</span><span class="p">),</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;plot_id&#39;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">all</span><span class="p">[</span><span class="nb">all</span><span class="o">.</span><span class="n">taxa</span> <span class="o">!=</span> <span class="s1">&#39;Rodent&#39;</span><span class="p">]</span>
+<span class="n">result</span><span class="p">[</span><span class="s1">&#39;genus&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;plot_type&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;count&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>plot_type</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Control</th>
+      <td>145</td>
+    </tr>
+    <tr>
+      <th>Long-term Krat Exclosure</th>
+      <td>87</td>
+    </tr>
+    <tr>
+      <th>Rodent Exclosure</th>
+      <td>143</td>
+    </tr>
+    <tr>
+      <th>Short-term Krat Exclosure</th>
+      <td>137</td>
+    </tr>
+    <tr>
+      <th>Spectab exclosure</th>
+      <td>27</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</details>
+</div>
+</div>
+<div class="section" id="creating-a-new-sqlite-database">
+<h2>Creating a new SQLite database<a class="headerlink" href="#creating-a-new-sqlite-database" title="Permalink to this headline">¶</a></h2>
+<p>Until now, we have used a previously prepared SQLite database. However, it is possible to use Pandas to create a new database. One way to do this is using existing <em>csv</em> files. We are going to recreate the mammals database in Python using Pandas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://ndownloader.figshare.com/files/3299483&quot;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/species.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://ndownloader.figshare.com/files/10717177&quot;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/surveys.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://ndownloader.figshare.com/files/3299474&quot;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/plots.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+<span class="c1"># We can use pandas read_csv to easily create dataframes</span>
+<span class="n">surveys</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/surveys.csv&#39;</span><span class="p">)</span>
+<span class="n">species</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/species.csv&#39;</span><span class="p">)</span>
+<span class="n">plots</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/plots.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now arises the problem of writing the DataFrames to an SQLite database. Thankfully, Pandas offers a very handy built in function. All we have to do is create the database and call to_sql on the dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;data/mammals.sqlite&#39;</span><span class="p">)</span>
+<span class="n">surveys</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;surveys&#39;</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">)</span>
+<span class="n">species</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">)</span>
+<span class="n">plots</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;plots&#39;</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;select * from surveys&#39;</span><span class="p">)</span>
+<span class="n">row1</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">row1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 1, 7, 16, 1977, 2, &#39;NL&#39;, &#39;M&#39;, 32.0, None)
+</pre></div>
+</div>
+</div>
+</div>
+<p>And that is it! Our SQLite database is built. From there, we can perform any SQL queries like usual, or continue to use Pandas to alter the data.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="lesson1.html" title="previous page">Get the data</a>
+    <a class='right-next' id="next-link" href="benchmark/bench_database.html" title="next page">Benchmarking</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Evan Cole<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

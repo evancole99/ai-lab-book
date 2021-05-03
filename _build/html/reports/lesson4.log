@@ -1,0 +1,51 @@
+Traceback (most recent call last):
+  File "/home/valid/.local/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/home/valid/.local/lib/python3.8/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/valid/.local/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/valid/.local/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/home/valid/.local/lib/python3.8/site-packages/nbclient/client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "/home/valid/.local/lib/python3.8/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/home/valid/.local/lib/python3.8/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+ticker_list = ['AAPL', 'GOOGL', 'FB', 'MSFT']
+
+for tik in ticker_list:
+    tik_data = getData(tik)
+    tik_data.reset_index(inplace=True)
+    
+    tik_data.columns = ['mkt_date', 'open', 'high', 'low', 'close', 'adj_close', 'volume']
+    tik_data.insert(1, 'ticker', tik)
+    tik_data.set_index('ticker')
+    
+    sql = "INSERT INTO stock (mkt_date, ticker, open, high, low, close, adj_close, volume) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+    row = tik_data.iloc[0]
+    print(row)
+    date_stripped = row.mkt_date.date()
+    cur.execute(sql, (str(date_stripped), str(row.ticker), float(row.open), float(row.high), float(row.low), float(row.close), float(row.adj_close), int(row.volume)))
+
+con.commit()
+con.close()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mIntegrityError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-3-d2cc0ff3dfae>[0m in [0;36m<module>[0;34m[0m
+[1;32m     13[0m     [0mprint[0m[0;34m([0m[0mrow[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     14[0m     [0mdate_stripped[0m [0;34m=[0m [0mrow[0m[0;34m.[0m[0mmkt_date[0m[0;34m.[0m[0mdate[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 15[0;31m     [0mcur[0m[0;34m.[0m[0mexecute[0m[0;34m([0m[0msql[0m[0;34m,[0m [0;34m([0m[0mstr[0m[0;34m([0m[0mdate_stripped[0m[0;34m)[0m[0;34m,[0m [0mstr[0m[0;34m([0m[0mrow[0m[0;34m.[0m[0mticker[0m[0;34m)[0m[0;34m,[0m [0mfloat[0m[0;34m([0m[0mrow[0m[0;34m.[0m[0mopen[0m[0;34m)[0m[0;34m,[0m [0mfloat[0m[0;34m([0m[0mrow[0m[0;34m.[0m[0mhigh[0m[0;34m)[0m[0;34m,[0m [0mfloat[0m[0;34m([0m[0mrow[0m[0;34m.[0m[0mlow[0m[0;34m)[0m[0;34m,[0m [0mfloat[0m[0;34m([0m[0mrow[0m[0;34m.[0m[0mclose[0m[0;34m)[0m[0;34m,[0m [0mfloat[0m[0;34m([0m[0mrow[0m[0;34m.[0m[0madj_close[0m[0;34m)[0m[0;34m,[0m [0mint[0m[0;34m([0m[0mrow[0m[0;34m.[0m[0mvolume[0m[0;34m)[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     16[0m [0;34m[0m[0m
+[1;32m     17[0m [0mcon[0m[0;34m.[0m[0mcommit[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mIntegrityError[0m: UNIQUE constraint failed: stock.mkt_date, stock.ticker
+IntegrityError: UNIQUE constraint failed: stock.mkt_date, stock.ticker
+

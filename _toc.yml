@@ -1,0 +1,21 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+- file: intro
+
+- part: Lesson 1
+  chapters:
+  - file: lessons/lesson1
+- part: Lesson 2
+  chapters:
+  - file: lessons/lesson2
+- part: Lesson 3
+  chapters:
+  - file: lessons/lesson3
+- part: Lesson 4
+  chapters:
+  - file: lessons/lesson4
+
+- part: Additional Content
+  chapters:
+  - file: extra/bench_database
