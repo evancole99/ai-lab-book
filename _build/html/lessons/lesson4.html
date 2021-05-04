@@ -88,7 +88,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Welcome to Jupyter Book Lessons
+   URI AI Lab - Workshops
   </a>
  </li>
 </ul>
@@ -304,7 +304,8 @@
         
               <div>
                 
-  <div class="section" id="using-apis">
+  <p><a class="reference external" href="http://www.youtube.com/watch?v=lm7pT90TsxY"><img alt="Lesson 4 Video" src="http://img.youtube.com/vi/lm7pT90TsxY/0.jpg" /></a></p>
+<div class="section" id="using-apis">
 <h1>Using APIs<a class="headerlink" href="#using-apis" title="Permalink to this headline">¶</a></h1>
 <p>In this lesson, we will use Yahoo Finance’s API to download stock data and insert it into our investment tracking database, upon which we can do additional calculations.</p>
 <p>The only table in the database that we are concerned with for this lesson is the <em>stock</em> table. However, there are many more tables to play around with, allowing for more complex programs and queries. For a more detailed overview of the database, watch the video embedded below.</p>
@@ -385,9 +386,10 @@ Note: The database is updated often, so it is possible this schema is out of dat
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
 <span class="n">yesterday</span> <span class="o">=</span> <span class="n">today</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tomorrow</span> <span class="o">=</span> <span class="n">today</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="n">ticker</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fetching &quot;</span><span class="p">,</span> <span class="n">ticker</span><span class="p">)</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">yesterday</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">today</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">yesterday</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">tomorrow</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">data</span>
 </pre></div>
 </div>
@@ -438,14 +440,14 @@ Note: The database is updated often, so it is possible this schema is out of dat
 [*********************100%***********************]  1 of 1 completed
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkt_date     2021-04-21 00:00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkt_date     2021-05-03 00:00:00
 ticker                      AAPL
-open                  132.360001
-high                      133.75
-low                   131.300003
-close                      133.5
-adj_close                  133.5
-volume                  68728500
+open                  132.039993
+high                  134.070007
+low                   131.830002
+close                 132.539993
+adj_close             132.539993
+volume                  72299748
 Name: 0, dtype: object
 Fetching  GOOGL
 </pre></div>
@@ -453,29 +455,28 @@ Fetching  GOOGL
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[*********************100%***********************]  1 of 1 completed
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkt_date     2021-04-21 00:00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkt_date     2021-05-03 00:00:00
 ticker                     GOOGL
-open                 2272.050049
-high                      2280.0
-low                  2244.820068
-close                2278.350098
-adj_close            2278.350098
-volume                   1159500
+open                 2364.909912
+high                 2381.550049
+low                       2335.5
+close                2343.080078
+adj_close            2343.080078
+volume                   1378068
 Name: 0, dtype: object
 Fetching  FB
+
+[*********************100%***********************]  1 of 1 completed
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[*********************100%***********************]  1 of 1 completed
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkt_date     2021-04-21 00:00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkt_date     2021-05-03 00:00:00
 ticker                        FB
-open                  301.950012
-high                  301.980011
-low                   297.390015
-close                 301.470001
-adj_close             301.470001
-volume                  14849000
+open                  326.170013
+high                  328.549988
+low                   321.839996
+close                 322.579987
+adj_close             322.579987
+volume                  18107131
 Name: 0, dtype: object
 Fetching  MSFT
 </pre></div>
@@ -483,14 +484,14 @@ Fetching  MSFT
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[*********************100%***********************]  1 of 1 completed
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkt_date     2021-04-21 00:00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mkt_date     2021-05-03 00:00:00
 ticker                      MSFT
-open                  258.940002
-high                  260.679993
-low                       257.25
-close                 260.579987
-adj_close             260.579987
-volume                  24009300
+open                  253.399994
+high                  254.350006
+low                   251.119995
+close                 251.860001
+adj_close             251.860001
+volume                  18682346
 Name: 0, dtype: object
 </pre></div>
 </div>

@@ -9,6 +9,10 @@ kernelspec:
   name: python3
 ---
 
+
+[![Lesson 4 Video](http://img.youtube.com/vi/lm7pT90TsxY/0.jpg)](http://www.youtube.com/watch?v=lm7pT90TsxY "Lesson 4")
+
+
 ## Using APIs
 
 In this lesson, we will use Yahoo Finance's API to download stock data and insert it into our investment tracking database, upon which we can do additional calculations.
@@ -69,9 +73,10 @@ The get\_data\_yahoo call on pandas datareader automatically queries the API, do
 
 today = date.today()
 yesterday = today - timedelta(days=1)
+tomorrow = today + timedelta(days=1)
 def getData(ticker):
     print("Fetching ", ticker)
-    data = pdr.get_data_yahoo(ticker, start=yesterday, end=today)
+    data = pdr.get_data_yahoo(ticker, start=yesterday, end=tomorrow)
     return data
 ```
 

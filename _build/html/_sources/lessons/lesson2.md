@@ -9,6 +9,9 @@ kernelspec:
   name: python3
 ---
 
+
+[![Lesson 2 Video](http://img.youtube.com/vi/bU2_C6YILmo/0.jpg)](http://www.youtube.com/watch?v=bU2_C6YILmo "Lesson 2")
+
 ## Get the data
 
 
